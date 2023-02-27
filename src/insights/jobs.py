@@ -1,9 +1,18 @@
 from functools import lru_cache
 from typing import List, Dict
+import csv
 
 
 @lru_cache
-def read(path: str) -> List[Dict]:
+def read(path):
+    with open(path, mode="r") as file:
+        csv_file = csv.DictReader(file)
+        job_list = []
+        for job in csv_file:
+            job_list.append(job)
+
+    return job_list
+
     """Reads a file from a given path and returns its contents
 
     Parameters
