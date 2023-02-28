@@ -4,7 +4,7 @@ import csv
 
 
 @lru_cache
-def read(path):
+def read(path: str) -> List[Dict]:
     with open(path, mode="r") as file:
         csv_file = csv.DictReader(file)
         job_list = []
@@ -28,7 +28,7 @@ def read(path):
     raise NotImplementedError
 
 
-def get_unique_job_types(path):
+def get_unique_job_types(path: str) -> List[str]:
     jobs = read(path)
     unique_jobs = []
 
