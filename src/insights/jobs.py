@@ -28,7 +28,16 @@ def read(path):
     raise NotImplementedError
 
 
-def get_unique_job_types(path: str) -> List[str]:
+def get_unique_job_types(path):
+    jobs = read(path)
+    unique_jobs = []
+
+    for job in jobs:
+        if job['job_type'] not in unique_jobs:
+            unique_jobs.append(job['job_type'])
+
+    return unique_jobs
+
     """Checks all different job types and returns a list of them
 
     Must call `read`
