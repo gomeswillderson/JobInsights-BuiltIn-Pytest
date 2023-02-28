@@ -1,7 +1,19 @@
 from typing import Union, List, Dict
+from src.insights.jobs import read
 
 
 def get_max_salary(path: str) -> int:
+    job_list = read(path)
+    max_salary = 0
+    for job in job_list:
+        salary = job.get('max_salary')
+        # https://www.w3schools.com/python/ref_dictionary_get.asp
+        if salary and salary.isdigit():
+            salary = int(salary)
+            if salary > max_salary:
+                max_salary = salary
+    return max_salary
+
     """Get the maximum salary of all jobs
 
     Must call `read`
