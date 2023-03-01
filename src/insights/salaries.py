@@ -101,6 +101,17 @@ def filter_by_salary_range(
     jobs: List[dict],
     salary: Union[str, int]
 ) -> List[Dict]:
+    filtered_jobs = []
+
+    for job in jobs:
+        try:
+            if matches_salary_range(job, salary):
+                filtered_jobs.append(job)
+        except ValueError:
+            # https://www.w3schools.com/python/ref_keyword_continue.asp
+            continue
+
+    return filtered_jobs
 
     """Filters a list of jobs by salary range
 
