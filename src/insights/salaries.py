@@ -101,6 +101,7 @@ def filter_by_salary_range(
     jobs: List[dict],
     salary: Union[str, int]
 ) -> List[Dict]:
+
     """Filters a list of jobs by salary range
 
     Parameters
