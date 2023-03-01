@@ -7,10 +7,10 @@ import csv
 def read(path: str) -> List[Dict]:
     """Reads a file from a given path and returns its contents.
 
-    :args:
+    Args:
         path (str): Full path to file.
 
-    :returns:
+    Returns:
         list: List of rows as dicts.
     """
     with open(path, mode="r") as file:
@@ -25,13 +25,13 @@ def read(path: str) -> List[Dict]:
 def get_unique_job_types(path: str) -> List[str]:
     """Checks all different job types and returns a list of them.
 
-    :note:
+    Note:
         Must call `read`.
 
-    :args:
+    Args:
         path (str): Must be passed to `read`.
 
-    :returns:
+    Returns:
         list: List of unique job types.
     """
     jobs = read(path)
@@ -48,11 +48,11 @@ def get_unique_job_types(path: str) -> List[str]:
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
     """Filters a list of jobs by job_type.
 
-    :args:
+    Args:
         jobs (list): List of jobs to be filtered.
         job_type (str): Job type for the list filter.
 
-    :returns:
+    Returns:
         list: List of jobs with provided job_type.
     """
     filtered_jobs = []
