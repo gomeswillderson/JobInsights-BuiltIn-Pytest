@@ -38,8 +38,9 @@ def get_unique_job_types(path: str) -> List[str]:
     unique_jobs = []
 
     for job in jobs:
-        if job['job_type'] not in unique_jobs:
-            unique_jobs.append(job['job_type'])
+        job = job['job_type']
+        if job and job not in unique_jobs:
+            unique_jobs.append(job)
 
     return unique_jobs
 
