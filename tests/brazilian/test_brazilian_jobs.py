@@ -18,3 +18,8 @@ def test_brazilian_jobs():
     result = read_brazilian_file(path)
     assert {"title": "Maquinista",
             "salary": "2000", "type": "trainee"} in result
+
+    # Test number of returned dictionaries
+    with open(path, "r") as f:
+        num_lines = len(f.readlines()) - 1  # ignore header
+    assert len(result) == num_lines
